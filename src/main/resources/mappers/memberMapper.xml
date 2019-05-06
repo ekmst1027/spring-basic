@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="member">
+	<select id="memberList" resultType="memberVO">
+		SELECT *
+		FROM member
+		ORDER BY name
+	</select>
+	
+	<insert id="insertMember">
+		INSERT INTO member (userid, passwd, name, email) 
+		VALUES ( #{userid},
+				 #{passwd},
+				 #{name},
+				 #{email})
+	</insert>
+	
+	<select id="viewMember" resultType="memberVO">
+		SELECT *
+		FROM member
+		WHERE userid=#{userid}
+	</select>
+	
+	<select id="checkPw" resultType="int">
+		SELECT COUNT(*)
+		FROM member
+		WHERE userid=#{userid} and
+			  passwd = #{passwd}
+	</select>
+	
+	<update id="updateMember">
+		UPDATE member
+		SET name = #{name},
+			passwd = #{passwd},
+			email = #{email}
+		WHERE userid = #{userid}
+	</update>
+	
+	<delete id="deleteMember">
+		DELETE FROM member
+		WHERE userid = #{userid}
+	</delete>
+	
+</mapper>
+
+
+
