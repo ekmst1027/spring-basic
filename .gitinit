@@ -22,7 +22,25 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-.classpath
+# Eclipse용 설정 파일 제외
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
 .project
-.settings
+.externalToolBuilders/
+*.launch
+.classpath
+.factorypath
+.buildpath
+.target
+.tern-project
 .springBeans
+.recommenders/
